@@ -76,33 +76,4 @@ router.delete("/:id", async function (req, res, next) {
   }
 });
 
-// router.get("/:id", async function (req, res, next) {
-//   try {
-//     const id = req.params.id;
-//     const result = await db.query(
-//       `SELECT i.id, i.comp_code, c.name, c.description, i.amt, i.paid, i.add_date, i.paid_date FROM invoices AS i INNER JOIN companies AS c ON (i.comp_code = c.code) WHERE i.id = $1`
-//     );
-//     if (result.rows.length === 0) {
-//       throw new ExpressError(`No such invoice: ${id}`, 404);
-//     }
-//     const data = result.rows[0];
-//     return res.json({
-//       company: {
-//         code: data.comp_code,
-//         name: data.name,
-//         description: data.description,
-//         invoices: {
-//           id: data.id,
-//           amt: data.amt,
-//           paid: data.paid,
-//           add_date: data.add_date,
-//           paid_date: data.paid_date,
-//         },
-//       },
-//     });
-//   } catch (err) {
-//     return next(err);
-//   }
-// });
-
 module.exports = router;
