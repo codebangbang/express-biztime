@@ -9,6 +9,13 @@ CREATE TABLE companies (
     description text
 );
 
+
+CREATE TABLE industries (
+    code text PRIMARY KEY,
+    industry text NOT NULL UNIQUE
+);  
+
+
 CREATE TABLE invoices (
     id serial PRIMARY KEY,
     comp_code text NOT NULL REFERENCES companies ON DELETE CASCADE,
@@ -28,3 +35,8 @@ INSERT INTO invoices (comp_Code, amt, paid, paid_date)
          ('apple', 200, false, null),
          ('apple', 300, true, '2018-01-01'),
          ('ibm', 400, false, null);
+
+INSERT INTO industries
+  VALUES ('tech', 'Technology'),
+         ('comp', 'Computers');
+
